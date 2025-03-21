@@ -43,19 +43,29 @@
                                 <div class="field">
                                     <label class="label">Nama</label>
                                     <div class="control">
-                                        <input type="text" class="input" name="nama" placeholder="Masukkan nama" required>
+                                        <input type="text" class="input" name="nama" placeholder="Masukkan nama">
+                                        @foreach($errors->get('nama') as $msg)
+                                        <p class="text-red-500 text-sm mt-1">{{$msg}}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label class="label">NPM</label>
                                     <div class="control">
-                                        <input type="text" class="input" name="npm" placeholder="Masukkan NPM" required>
+                                        <input type="text" class="input" name="npm" placeholder="Masukkan NPM">
+                                        @foreach($errors->get('npm') as $msg)
+                                        <p class="text-red-500 text-sm mt-1">{{$msg}}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label class="label">Kelas</label>
+                                    <label for="id_kelas">Kelas:</label>
                                     <div class="control">
-                                        <input type="text" class="input" name="kelas" placeholder="Masukkan kelas" required>
+                                    <select name="kelas_id" id="kelas_id">
+                                        @foreach($kelas as $kelasItem)
+                                        <option value="{{$kelasItem->id}}">{{$kelasItem->nama_kelas}}</option>
+                                        @endforeach
+                                    </select>
                                     </div>
                                 </div>
                                 <div class="field">
